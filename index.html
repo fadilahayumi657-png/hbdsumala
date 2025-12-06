@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Playfair Display', serif;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #D2B48C, #F5DEB3); /* Background coklat soft */
+        }
+
+        /* Efek bintang untuk slide 1 dan 2 */
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Slide container */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s;
+            z-index: 2;
+        }
+
+        .slide.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Slide 1 */
+        #slide1 {
+            background: linear-gradient(to bottom, #D2B48C, #F5DEB3); /* Coklat soft */
+        }
+
+        .happy-birthday {
+            font-size: 5em;
+            color: #8B4513; /* Coklat gelap untuk kontras */
+            animation: wave 2s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-10px); }
+            50% { transform: translateY(0); }
+            75% { transform: translateY(10px); }
+        }
+
+        .cake {
+            width: 300px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .next-btn {
+            background: #8B4513; /* Coklat gelap */
+            color: #32CD32;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        /* Slide 2 */
+        #slide2 {
+            background: linear-gradient(to bottom, #D2B48C, #F5DEB3); /* Coklat soft */
+            text-align: center;
+        }
+
+        .message {
+            font-size: 1.5em;
+            color: #544634; /* Coklat gelap */
+            max-width: 600px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .word {
+            opacity: 0;
+            animation: fadeInWord 0.5s forwards;
+            margin: 0 5px;
+        }
+
+        .word:nth-child(1) { animation-delay: 5s; }
+        .word:nth-child(2) { animation-delay: 5.5s; }
+        .word:nth-child(3) { animation-delay: 6s; }
+        .word:nth-child(4) { animation-delay: 6.5s; }
+        .word:nth-child(5) { animation-delay: 7s; }
+        .word:nth-child(6) { animation-delay: 7.5s; }
+        .word:nth-child(7) { animation-delay: 8s; }
+        .word:nth-child(8) { animation-delay: 8.5s; }
+        .word:nth-child(9) { animation-delay: 9s; }
+        .word:nth-child(10) { animation-delay: 9.5s; }
+        .word:nth-child(11) { animation-delay: 10s; }
+        .word:nth-child(12) { animation-delay: 10.5s; }
+        .word:nth-child(13) { animation-delay: 11s; }
+        .word:nth-child(14) { animation-delay: 11.5s; }
+        .word:nth-child(15) { animation-delay: 12s; }
+        .word:nth-child(16) { animation-delay: 12.5s; }
+        .word:nth-child(17) { animation-delay: 13s; }
+        .word:nth-child(18) { animation-delay: 13.5s; }
+        .word:nth-child(19) { animation-delay: 14s; }
+        .word:nth-child(20) { animation-delay: 14.5s; }
+        .word:nth-child(21) { animation-delay: 15s; }
+        .word:nth-child(22) { animation-delay: 15.5s; }
+        .word:nth-child(23) { animation-delay: 16s; }
+        .word:nth-child(24) { animation-delay: 16.5s; }
+        .word:nth-child(25) { animation-delay: 17s; }
+        .word:nth-child(26) { animation-delay: 17.5s; }
+        .word:nth-child(27) { animation-delay: 18s; }
+        .word:nth-child(28) { animation-delay: 18.5s; }
+        .word:nth-child(29) { animation-delay: 19s; }
+        .word:nth-child(30) { animation-delay: 19.5s; }
+        .word:nth-child(31) { animation-delay: 20s; }
+        .word:nth-child(32) { animation-delay: 20.5s; }
+        .word:nth-child(33) { animation-delay: 21s; }
+        .word:nth-child(34) { animation-delay: 21.5s; }
+        .word:nth-child(35) { animation-delay: 22s; }
+        .word:nth-child(36) { animation-delay: 22.5s; }
+        .word:nth-child(37) { animation-delay: 23s; }
+        .word:nth-child(38) { animation-delay: 23.5s; }
+        .word:nth-child(39) { animation-delay: 24s; }
+        .word:nth-child(40) { animation-delay: 24.5s; }
+        .word:nth-child(41) { animation-delay: 25s; }
+        .word:nth-child(42) { animation-delay: 25.5s; }
+        .word:nth-child(42) { animation-delay: 26s; }
+        .word:nth-child(43) { animation-delay: 26.5s; }
+        .word:nth-child(44) { animation-delay: 27s; }
+        .word:nth-child(45) { animation-delay: 27.5s; }
+        .word:nth-child(46) { animation-delay: 28s; }
+        .word:nth-child(47) { animation-delay: 28.5s; }
+        .word:nth-child(48) { animation-delay: 29s; }
+        .word:nth-child(49) { animation-delay: 29.5s; }
+        .word:nth-child(50) { animation-delay: 30s; }
+        .word:nth-child(51) { animation-delay: 30.5s; }
+        .word:nth-child(52) { animation-delay: 31s; }
+        .word:nth-child(53) { animation-delay: 31.5s; }
+        .word:nth-child(54) { animation-delay: 32s; }
+        .word:nth-child(55) { animation-delay: 32.5s; }
+        .word:nth-child(56) { animation-delay: 33s; }
+        .word:nth-child(57) { animation-delay: 33.5s; }
+        .word:nth-child(58) { animation-delay: 34s; }
+        .word:nth-child(59) { animation-delay: 34.5s; }
+        .word:nth-child(60) { animation-delay: 35s; }
+        .word:nth-child(61) { animation-delay: 35.8s; }
+        .word:nth-child(62) { animation-delay: 36s; }
+        .word:nth-child(63) { animation-delay: 36.5s; }
+        .word:nth-child(64) { animation-delay: 37s; }
+        .word:nth-child(65) { animation-delay: 37.5s; }
+        .word:nth-child(66) { animation-delay: 38s; }
+        .word:nth-child(67) { animation-delay: 38.5s; }
+        .word:nth-child(68) { animation-delay: 39s; }
+        .word:nth-child(69) { animation-delay: 39.5s; }
+        .word:nth-child(70) { animation-delay: 40s; }
+        .word:nth-child(71) { animation-delay: 40.5s; }
+        .word:nth-child(72) { animation-delay: 41s; }
+        .word:nth-child(73) { animation-delay: 41.5s; }
+        .word:nth-child(74) { animation-delay: 42s; }
+        .word:nth-child(75) { animation-delay: 42.5s; }
+        .word:nth-child(76) { animation-delay: 43s; }
+        .word:nth-child(77) { animation-delay: 43.5s; }
+        .word:nth-child(78) { animation-delay: 44s; }
+        .word:nth-child(79) { animation-delay: 44.5s; }
+        .word:nth-child(80) { animation-delay: 45s; }
+        .word:nth-child(81) { animation-delay: 45.5s; }
+        .word:nth-child(82) { animation-delay: 46s; }
+        .word:nth-child(83) { animation-delay: 46.5s; }
+        .word:nth-child(84) { animation-delay: 47s; }
+        .word:nth-child(85) { animation-delay: 47.5s; }
+        .word:nth-child(86) { animation-delay: 48s; }
+        .word:nth-child(87) { animation-delay: 48.5s; }
+        .word:nth-child(88) { animation-delay: 49s; }
+        .word:nth-child(89) { animation-delay: 49.5s; }
+        .word:nth-child(90) { animation-delay: 50s; }
+        .word:nth-child(91) { animation-delay: 50.5s; }
+        .word:nth-child(92) { animation-delay: 51s; }
+        .word:nth-child(93) { animation-delay: 51.5s; }
+        .word:nth-child(94) { animation-delay: 52s; }
+        .word:nth-child(95) { animation-delay: 52.5s; }
+        .word:nth-child(96) { animation-delay: 53s; }
+        .word:nth-child(97) { animation-delay: 53.5s; }
+        .word:nth-child(98) { animation-delay: 54s; }
+        .word:nth-child(99) { animation-delay: 54.5s; }
+        .word:nth-child(100) { animation-delay: 55s; }
+        .word:nth-child(101) { animation-delay: 55.5s; }
+        .word:nth-child(102) { animation-delay: 56s; }
+        .word:nth-child(103) { animation-delay: 56.5s; }
+
+        @keyframes fadeInWord {
+            to { opacity: 1; }
+        }
+
+        .next-btn-right {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: #8B4513; /* Coklat gelap */
+            color: #32CD32;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        /* Slide 3 */
+        #slide3 {
+            background: linear-gradient(45deg, #D2B48C, #F5DEB3, #DEB887, #BC8F8F); /* Gradien coklat soft warna-warni */
+            animation: paper 10s infinite;
+        }
+
+        @keyframes paper {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animasi kertas jatuh untuk slide 3 */
+        .falling-paper {
+            position: absolute;
+            width: 15px;
+            height: 25px;
+            background: rgba(128, 128, 128, 0.8); /* Default grey */
+            border-radius: 2px;
+            animation: fall 4s linear infinite;
+            z-index: 3;
+        }
+
+        .falling-paper:nth-child(4n+1) {
+            background: rgba(0, 0, 255, 0.8); /* Blue */
+        }
+
+        .falling-paper:nth-child(4n+2) {
+            background: rgba(0, 128, 0, 0.8); /* Green */
+        }
+
+        .falling-paper:nth-child(4n+3) {
+            background: rgba(255, 0, 0, 0.8); /* Red */
+        }
+
+        @keyframes fall {
+            0% { top: -10%; transform: rotate(0deg); }
+            100% { top: 110%; transform: rotate(360deg); }
+        }
+
+        .final-message {
+            font-size: 3em;
+            color: #3E332B; /* Coklat gelap */
+            opacity: 0;
+            animation: fadeIn 1s 12s forwards;
+            z-index: 4;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Efek bintang untuk slide 1 dan 2 -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Slide 1 -->
+    <div class="slide" id="slide1">
+        <h1 class="happy-birthday Suriana">Happy Birthday Suriana</h1>
+        <img src="c:\Users\lenovo\Downloads\cake_1-removebg-preview.png" alt="Cake" class="cake"> <!-- Ganti dengan URL gambar kue ulang tahun yang cantik, soft, dan calm -->
+        <button class="next-btn" onclick="nextSlide(1)">KLIK SUMALAAAAA🙄😍</button>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="slide hidden" id="slide2">
+        <div class="message">
+            <span class="word">Happy</span>
+            <span class="word">Birthday sayangkuuuuuuu,</span>
+            <span class="word">kadang</span>
+            <span class="word">aku</span>
+            <span class="word">mikir,</span>
+            <span class="word">lucu ya,</span>
+            <span class="word">kita</span>
+            <span class="word">cuman</span>
+            <span class="word">sekedar</span>
+            <span class="word">kenal</span>
+            <span class="word">karena</span>
+            <span class="word">satu</span>
+            <span class="word">kos.</span>
+            <span class="word">tapi</span>
+            <span class="word">ntah</span>
+            <span class="word">gimana,</span>
+            <span class="word">pelan-pelan</span>
+            <span class="word">kamu</span>
+            <span class="word">jadi</span>
+            <span class="word">seseorang</span>
+            <span class="word">yang</span>
+            <span class="word">keberadaannya</span>
+            <span class="word">kerasa</span>
+            <span class="word">beda.</span>
+            <span class="word">kerasa</span>
+            <span class="word">dekat....</span>
+            <span class="word">bahkan</span>
+            <span class="word">lebih</span>
+            <span class="word">dekat</span>
+            <span class="word">yang</span>
+            <span class="word">pernah</span>
+            <span class="word">aku</span>
+            <span class="word">bayangkan.</span>
+            <span class="word">kadang</span>
+            <span class="word">aku</span>
+            <span class="word">mikir,</span>
+            <span class="word">kalau</span>
+            <span class="word">kita</span>
+            <span class="word">engga</span>
+            <span class="word">satu</span>
+            <span class="word">kos,</span>
+            <span class="word">mungkin</span>
+            <span class="word">kita</span>
+            <span class="word">engga</span>
+            <span class="word">bakal</span>
+            <span class="word">sedekat</span>
+            <span class="word">ini.</span>
+            <span class="word">tapi</span>
+            <span class="word">ternyata</span>
+            <span class="word">hidup</span>
+            <span class="word">punya</span>
+            <span class="word">cara</span>
+            <span class="word">sendiri</span>
+            <span class="word">untuk</span>
+            <span class="word">ngenalin</span>
+            <span class="word">aku</span>
+            <span class="word">ke</span>
+            <span class="word">orang</span>
+            <span class="word">yang</span>
+            <span class="word">tepat.</span>
+            <span class="word">yaituu....</span>
+            <span class="word">kamuuuuu.</span>
+            <span class="word">Semoga</span>
+            <span class="word">di umur</span>
+            <span class="word">kamu</span>
+            <span class="word">yang</span>
+            <span class="word">baru</span>
+            <span class="word">ini,</span>
+            <span class="word">semua</span>
+            <span class="word">hal</span>
+            <span class="word">baik</span>
+            <span class="word">datang</span>
+            <span class="word">ke kamu.</span>
+            <span class="word">u</span>
+            <span class="word">deserve</span>
+            <span class="word">kebahagian</span>
+            <span class="word">yang</span>
+            <span class="word">penuh,</span>
+            <span class="word">hal</span>
+            <span class="word">yang</span>
+            <span class="word">bikin</span>
+            <span class="word">hati</span>
+            <span class="word">kamu</span>
+            <span class="word">tenang,</span>
+            <span class="word">hari</span>
+            <span class="word">kamu</span>
+            <span class="word">yang</span>
+            <span class="word">penuh</span>
+            <span class="word">tawa,</span>
+            <span class="word">dan</span>
+            <span class="word">doamu</span>
+            <span class="word">pelan-pelan</span>
+            <span class="word">jadi</span>
+            <span class="word">kenyataan.</span>
+            <span class="word">Enjoy</span>
+            <span class="word">your</span>
+            <span class="word">day.</span>
+            <span class="word">You</span>
+            <span class="word">truly</span>
+            <span class="word">deserve</span>
+            <span class="word">the</span>
+            <span class="word">best.</span>
+            <span class="word">🤍✨</span>
+        </div>
+        <button class="next-btn-right" onclick="nextSlide(2)">Last Slide 🥳</button>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="slide hidden" id="slide3">
+        <div id="falling-papers"></div> <!-- Container untuk kertas jatuh -->
+        <h1 class="final-message">ONCE AGAIN HAPPY BIRTHDAY TO U🥰</h1>
+        <h1 class="final-message">WISS U ALL THE BEST ❤</h1>
+    </div>
+
+    <script>
+        // Fungsi untuk navigasi slide
+        function nextSlide(current) {
+            document.getElementById('slide' + current).classList.add('hidden');
+            document.getElementById('slide' + (current + 1)).classList.remove('hidden');
+            if (current === 1) {
+                // Sembunyikan bintang di slide 3
+                document.getElementById('stars').style.display = 'none';
+            }
+        }
+
+        // Generate bintang acak untuk slide 1 dan 2
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 2 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Generate kertas jatuh acak untuk slide 3
+        function createFallingPapers() {
+            const container = document.getElementById('falling-papers');
+            for (let i = 0; i < 100; i++) { // Lebih banyak kertas untuk efek full bertebaran
+                const paper = document.createElement('div');
+                paper.className = 'falling-paper';
+                paper.style.left = Math.random() * 100 + '%'; // Posisi horizontal acak
+                paper.style.width = Math.random() * 10 + 10 + 'px'; // Ukuran acak antara 10-20px
+                paper.style.height = paper.style.width * 1.5 + 'px'; // Tinggi proporsional
+                paper.style.animationDelay = Math.random() * 5 + 's'; // Delay acak hingga 5s
+                paper.style.animationDuration = Math.random() * 3 + 3 + 's'; // Durasi acak antara 3-6s
+                container.appendChild(paper);
+            }
+        }
+
+        createStars();
+        createFallingPapers(); // Panggil saat halaman load
+    </script>
+</body>
+</html>
